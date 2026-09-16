@@ -7,21 +7,22 @@ const numberToWordsWithTens = (source, startingPoint, tensWord) => {
 }
 
 const numberToWords = (source) => {
-  const fifty = numberToWordsWithTens(source, 50, 'fifty');
-  if (fifty !== undefined) {
-    return fifty;
-  }
-  const forty = numberToWordsWithTens(source, 40, 'forty');
-  if (forty !== undefined) {
-    return forty;
-  }
-  const thirty = numberToWordsWithTens(source, 30, 'thirty');
-  if (thirty !== undefined) {
-    return thirty;
-  }
-  const twenty = numberToWordsWithTens(source, 20, 'twenty');
-  if (twenty !== undefined) {
-    return twenty
+  const tensWords = {
+    50: 'fifty',
+    40: 'forty',
+    30: 'thirty',
+    20: 'twenty'
+  };
+  const tens = [50, 40, 30, 20];
+  for (const startingPoint of tens) {
+    const result = numberToWordsWithTens(
+      source,
+      startingPoint,
+      tensWords[startingPoint]
+    );
+    if (result !== undefined) {
+      return result;
+    }
   }
   switch (source) {
     case 0:
