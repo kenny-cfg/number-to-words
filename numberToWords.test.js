@@ -56,4 +56,12 @@ describe('numberToWords', () => {
     
     expect(actual).toBe(expected);
   })
+  
+  it('works for 134', () => {
+    const expected = 'one hundred and thirty four';
+    
+    const actual = numberToWords(134);
+    
+    expect(actual).toBe(expected);
+  })
 })

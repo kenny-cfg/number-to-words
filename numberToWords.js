@@ -7,6 +7,13 @@ const numberToWordsWithTens = (source, startingPoint, tensWord) => {
 }
 
 const numberToWords = (source) => {
+  if (source >= 100) {
+    const remainder = source - 100;
+    // This is a ternary https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Conditional_operator
+    const remainderWords = remainder === 0 ? ''
+    : " and " + numberToWords(remainder);
+    return "one hundred" + remainderWords;
+  }
   const tensWords = {
     90: 'ninety',
     80: 'eighty',
@@ -28,6 +35,14 @@ const numberToWords = (source) => {
       return result;
     }
   }
+  // Switch statement is shorthand for this:
+  /*
+  if (source === 0) {
+    return 'zero';
+  } else if (source === 1) {
+    return 'one';
+  }
+  */
   switch (source) {
     case 0:
       return 'zero';
