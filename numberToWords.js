@@ -1,6 +1,27 @@
+const numberToWordsWithTens = (source, startingPoint, tensWord) => {
+  if (source >= startingPoint) {
+    const remainder = source - startingPoint;
+    const remainderText = remainder === 0 ? '' : ' ' + numberToWords(source - startingPoint);
+    return tensWord + remainderText;
+  }
+}
+
 const numberToWords = (source) => {
-  if (source > 20) {
-    return 'twenty ' + numberToWords(source - 20);
+  const fifty = numberToWordsWithTens(source, 50, 'fifty');
+  if (fifty !== undefined) {
+    return fifty;
+  }
+  const forty = numberToWordsWithTens(source, 40, 'forty');
+  if (forty !== undefined) {
+    return forty;
+  }
+  const thirty = numberToWordsWithTens(source, 30, 'thirty');
+  if (thirty !== undefined) {
+    return thirty;
+  }
+  const twenty = numberToWordsWithTens(source, 20, 'twenty');
+  if (twenty !== undefined) {
+    return twenty
   }
   switch (source) {
     case 0:
@@ -43,8 +64,6 @@ const numberToWords = (source) => {
       return 'eighteen';
     case 19:
       return 'nineteen';
-    case 20:
-      return 'twenty';
   }
   return 'TODO';
 }
