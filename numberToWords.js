@@ -8,12 +8,16 @@ const numberToWordsWithTens = (source, startingPoint, tensWord) => {
 
 const numberToWords = (source) => {
   const tensWords = {
+    90: 'ninety',
+    80: 'eighty',
+    70: 'seventy',
+    60: 'sixty',
     50: 'fifty',
     40: 'forty',
     30: 'thirty',
     20: 'twenty'
   };
-  const tens = [50, 40, 30, 20];
+  const tens = [90, 80, 70, 60, 50, 40, 30, 20];
   for (const startingPoint of tens) {
     const result = numberToWordsWithTens(
       source,
