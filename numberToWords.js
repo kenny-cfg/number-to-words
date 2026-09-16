@@ -1,4 +1,7 @@
 const numberToWords = (source) => {
+  if (source > 20) {
+    return 'twenty ' + numberToWords(source - 20);
+  }
   switch (source) {
     case 0:
       return 'zero';
