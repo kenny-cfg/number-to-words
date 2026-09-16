@@ -41,7 +41,9 @@ const numberToWords = (source) => {
     return 'zero';
   } else if (source === 1) {
     return 'one';
-  }
+  } else if (source === 2) {
+    return 'two';
+}
   */
   switch (source) {
     case 0:
